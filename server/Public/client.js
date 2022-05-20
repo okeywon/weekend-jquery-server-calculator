@@ -10,12 +10,12 @@ function onReady() {
     // displayResult();
 }
 
-let buttonUserPress = [];
+let buttonUserPress = '';
 
 function saveButton(){
     let buttonPressed = $(this).data().id;
     console.log(buttonPressed);
-    buttonUserPress.push(buttonPressed);
+    buttonUserPress = buttonPressed;
 }
 
 function onSubmit(){
@@ -25,7 +25,7 @@ function onSubmit(){
         n1: $('#numOne').val(),
         button: buttonUserPress,
         n2: $('#numTwo').val(),
-        answer: $('#result').val()
+        answer: 'answer'
     }
 
     console.log(userInputs.button);
@@ -34,9 +34,10 @@ function onSubmit(){
         url: '/calculate',
         method: 'POST',
         data: userInputs
-    }).then(() => {
+    }).then((response) => {
         console.log('POST success! client');
         getCalculation(userInputs);
+        userInputs.answer = response;
     }).catch((err) => {
         console.log('POST error: client', err);
     });
@@ -46,7 +47,6 @@ function getCalculation(userInputs){
     $.ajax({
         url: '/calculate',
         method: 'GET',
-        data: userInputs
     }).then((userInputs) => {
         console.log('GET success! Client', userInputs);
         displayResult(userInputs);

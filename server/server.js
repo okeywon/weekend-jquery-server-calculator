@@ -14,7 +14,7 @@ let userInputs = [
         n2: 'numTwo',
         answer: 'result'
     }
-]
+];
 
 // insert GET
 app.get('/calculate', (req, res) => {
@@ -27,32 +27,33 @@ app.post('/calculate', (req, res) => {
     console.log('POST working! server');
     console.log('userInputs are:', req.body);
     userInputs.push(req.body);
-    equationFunciton();
+    equationFunciton(req.body);
     res.sendStatus(201)
 });
 
 // insert the logic for calculator here
-function equationFunciton(n1, n2){
+function equationFunciton(obj){
     console.log('in equationFunciton')
-    switch(n1, n2) {
-        case '+':
-            let resultPlus = n1 + n2;
-            userInputs.answer.push(resultPlus);
+    switch(obj.button) {
+        case 'plusBtn':
+            let resultPlus = Number(obj.n1) + Number(obj.n2);
+            obj.answer = resultPlus;
+            console.log('Also the thing obj', obj);
             break;
-        case '-':
-            let resultMinus = n1 - n2;
-            userInputs.answer.push(resultMinus);
+        case 'minusBtn':
+            let resultMinus = Number(obj.n1) - Number(obj.n2);
+            obj.answer = resultMinus;
             break;
-        case '*':
-            let resultTimes = n1 * n2;
-            userInputs.answer.push(resultTimes);
+        case 'timesBtn':
+            let resultTimes = Number(obj.n1) * Number(obj.n2);
+            obj.answer = resultTimes;
             break;
-        case '/':
-            let resultDivide = n1 / n2;
-            userInputs.answer.push(resultDivide);
+        case 'divideBtn':
+            let resultDivide = Number(obj.n1) / Number(obj.n2);
+            obj.answer = resultDivide;
             break;
     }
-
+    console.log('This is what you want:', userInputs);
 }
 
 app.listen(5000, () => {
