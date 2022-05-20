@@ -66,5 +66,6 @@ function displayResult(userInputs){
         $('calculationHistory').append(`
             <li>${answer.n1}${answer.button}${answer.n2}=${answer.answer}</li>
         `);
+        $('#result').append(`${answer.answer}`);
     }
 }
