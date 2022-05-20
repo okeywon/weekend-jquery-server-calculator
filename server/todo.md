@@ -2,7 +2,7 @@
 [x] express, nodemon, body-parser
 
 Client side:
-[ ] two user inputs that take in number values
+[x] two user inputs that take in number values
 [x] buttons that denote different mathmatical functions (ie: +, -, /)
 [ ] "submit" button that is an =, capture the input and POST to server
 [ ] GET req
