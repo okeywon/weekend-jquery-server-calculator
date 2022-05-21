@@ -6,26 +6,29 @@ function onReady() {
     console.log("Let's do this!");
     $('.exponentBtn').on('click', saveButton);
     $('#equalBtn').on('click', onSubmit);
-    // $('#clearBtn').on('click', clearHistory);
+    $('#clearBtn').on('click', clearInputs);
+    $('#resetBtn').on('click', clearHistory);
     // displayResult();
 }
 
 let buttonUserPress = [];
 
-function saveButton(){
+function saveButton(e){
+    e.preventDefault();
     let buttonPressed = $(this).data().id;
     console.log(buttonPressed);
     buttonUserPress.push(buttonPressed);
 }
 
-function onSubmit(){
+function onSubmit(e){
+    e.preventDefault();
     console.log('Submitted!');
 
     let userInputs = {
         n1: $('#numOne').val(),
         button: buttonUserPress,
         n2: $('#numTwo').val(),
-        answer: $('#result').val()
+        answer: ''
     }
 
     console.log(userInputs.button);
@@ -55,16 +58,40 @@ function getCalculation(userInputs){
     });
 }
 
-// function clearHistory(){
+function clearInputs(){
+    $('#numOne').text('');
+    $('#numTwo').text('');
+}
 
-// }
+function clearHistory(){
+    $('userForm').reset();
+}
 
 function displayResult(userInputs){
     //answer from server server.js equationFunction
-    console.log('in displayResult, client');
+    console.log('in displayResult, client', userInputs);
+    $('#calculationHistory').empty();
     for (let answer of userInputs){
-        $('calculationHistory').append(`
-            <li>${answer.n1}${answer.button}${answer.n2}=${answer.answer}</li>
+        $('#result') = answer.answer;
+        if (answer.button == 'plusBtn'){
+        $('#calculationHistory').append(`
+            <li>${answer.n1}+${answer.n2}=${answer.answer}</li>
         `);
+        }
+        else if (answer.button == 'minusBtn'){
+            $('#calculationHistory').append(`
+                <li>${answer.n1}-${answer.n2}=${answer.answer}</li>
+            `);
+        }
+        else if (answer.button == 'timesBtn'){
+            $('#calculationHistory').append(`
+                <li>${answer.n1}*${answer.n2}=${answer.answer}</li>
+            `);
+        }
+        else if (answer.button == 'divideBtn'){
+            $('#calculationHistory').append(`
+                <li>${answer.n1}/${answer.n2}=${answer.answer}</li>
+            `);
+        }
     }
 }
