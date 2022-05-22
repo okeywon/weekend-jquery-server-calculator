@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./jquery.js"></script>
     <script src="./client.js"></script>
-    <title>Document</title>
+    <title>My Server Side Calculator</title>
 </head>
 <body>
     <h1>Server Side Calculator</h1>
-
+    <form id="userForm">
         <input type="number" id="numOne" placeholder="Number One">
         <button data-id="plusBtn" class="exponentBtn">+</button>
         <button data-id="minusBtn" class="exponentBtn">-</button>
@@ -18,9 +18,10 @@
         <button data-id="divideBtn" class="exponentBtn">/</button>
         <input type="number" id="numTwo" placeholder="Number Two">
         <input type="submit" id="equalBtn" value="=">
-        <input type="reset" id="clearBtn" value="C">
-
-    <h2 id="result"></h2>
-    <ul id="calculationHistory"></ul>
+        <button id="clearBtn">C</button>
+        <button type="reset" id="resetBtn">Reset</button>
+        <ul id="calculationHistory"></ul>
+        <h2 id="result"></h2>
+    </form>
 </body>
 </html>
