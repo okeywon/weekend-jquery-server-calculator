@@ -6,9 +6,8 @@ function onReady() {
     console.log("Let's do this!");
     $('.exponentBtn').on('click', saveButton);
     $('#equalBtn').on('click', onSubmit);
-    $('#clearBtn').on('click', clearInputs);
-    $('#resetBtn').on('click', clearHistory);
-    // displayResult();
+    $('#userForm').on('click', '#clearBtn', clearInputs);
+    $('#userForm').on('click', '#resetBtn', clearHistory);
 }
 
 let buttonUserPress = [];
@@ -28,7 +27,7 @@ function onSubmit(e){
         n1: $('#numOne').val(),
         button: buttonUserPress,
         n2: $('#numTwo').val(),
-        answer: ''
+        answer: 'answer'
     }
 
     console.log(userInputs.button);
@@ -64,7 +63,8 @@ function clearInputs(){
 }
 
 function clearHistory(){
-    $('userForm').reset();
+    $('#userForm')[0].reset();
+    location.reload();
 }
 
 function displayResult(userInputs){
@@ -72,7 +72,7 @@ function displayResult(userInputs){
     console.log('in displayResult, client', userInputs);
     $('#calculationHistory').empty();
     for (let answer of userInputs){
-        $('#result') = answer.answer;
+        $('#result').append(answer.answer);
         if (answer.button == 'plusBtn'){
         $('#calculationHistory').append(`
             <li>${answer.n1}+${answer.n2}=${answer.answer}</li>

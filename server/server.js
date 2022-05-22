@@ -32,27 +32,41 @@ app.post('/calculate', (req, res) => {
 });
 
 // insert the logic for calculator here
-function equationFunciton(n1, n2){
+
+app.get('/answer', (req, res) => {
+    console.log('in /answer')
+    let calculatedAnswer = userInputs.answer;
+    console.log('Your answer is:', calculatedAnswer);
+
+    res.send(`Your answer is:', ${calculatedAnswer}`);
+});
+
+function equationFunciton(userInputs){
     console.log('in equationFunciton')
-    switch(n1, n2) {
-        case '+':
+    let answer = '';
+    switch(userInputs) {
+        case 0:
+            userInputs.button == "plusBtn";
             let resultPlus = n1 + n2;
-            userInputs.answer.push(resultPlus);
+            answer = resultPlus;
+            console.log("Plus variable: ", answer);
+            userInputs.answer.push(answer);
             break;
-        case '-':
+        case 1:
+            userInputs.button == "minusBtn";
             let resultMinus = n1 - n2;
-            userInputs.answer.push(resultMinus);
+            answer = resultMinus;
+            userInputs.answer.push(answer);
             break;
-        case '*':
+        case userInputs == 'timesBtn':
             let resultTimes = n1 * n2;
             userInputs.answer.push(resultTimes);
             break;
-        case '/':
+        case userInputs == 'divideBtn':
             let resultDivide = n1 / n2;
             userInputs.answer.push(resultDivide);
             break;
     }
-
 }
 
 app.listen(5000, () => {
