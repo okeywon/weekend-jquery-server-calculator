@@ -93,6 +93,7 @@ function displayResult(userInputs){
                 <li>${answer.n1}/${answer.n2}=${answer.answer}</li>
             `);
         }
+        $('#result').empty();
         $('#result').append(`${answer.answer}`);
     }
 }

@@ -32,7 +32,6 @@ app.post('/calculate', (req, res) => {
 });
 
 // insert the logic for calculator here
-<<<<<<< HEAD
 function equationFunciton(obj){
     console.log('in equationFunciton')
     switch(obj.button) {
