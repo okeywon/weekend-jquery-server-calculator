@@ -21,5 +21,5 @@ Server side:
 STRETCH:
 [ ] additional buttons for all numbers and .
 [ ] only allow a POST if all necessary inputs are ready (require)
-[ ] allow user to clear history by hitting "reset" button - use a DELETE req to delete info on the server
+[x] allow user to clear history by hitting "reset" button - use a DELETE req to delete info on the server
 [ ] user can click on a history calculation to re-run that equation

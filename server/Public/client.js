@@ -7,6 +7,7 @@ function onReady() {
     console.log("Let's do this!");
     // exponent button on click (user presses +, -, etc), runs savebutton function
     $('.exponentBtn').on('click', saveButton);
+    // $('.numberBtn').on('click', numberButton);
     // equal button on click runs on submit function
     $('#equalBtn').on('click', onSubmit);
     // user form on click of the clearbutton, runs clear inputs function
@@ -17,6 +18,18 @@ function onReady() {
 
 // global variable to pass user exponent button press into
 let buttonUserPress = '';
+// let numberUserPress = '';
+
+// function numberButton(e){
+//     // event is preventing user form from reloading
+//     e.preventDefault();
+//     // button pressed by user is saved to buttonPressed
+//     let numberPress = $(this).data().id;
+//     // log the button pressed so we can verify
+//     console.log(numberPress);
+//     // save the local variable to the global variable for use later
+//     numberUserPress = numberPress;
+// }
 
 // function that takes in an event
 function saveButton(e){
@@ -81,9 +94,10 @@ function getCalculation(userInputs){
 }
 
 // function that clears the user input fields
-function clearInputs(){
-    $('#numOne').text('');
-    $('#numTwo').text('');
+function clearInputs(e){
+    e.preventDefault();
+    $('#numOne').val('');
+    $('#numTwo').val('');
 }
 
 // function that clears the form and reloads the page
