@@ -91,6 +91,8 @@ function getCalculation(userInputs){
     }).catch((err) => { // in case of error I know it's in the get client side
         console.log('GET error: client', err);
     });
+    $('#numOne').val('');
+    $('#numTwo').val('');
 }
 
 // function that clears the user input fields
