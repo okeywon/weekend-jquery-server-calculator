@@ -4,18 +4,18 @@
 Client side:
 [x] two user inputs that take in number values
 [x] buttons that denote different mathmatical functions (ie: +, -, /)
-[ ] "submit" button that is an =, capture the input and POST to server
-[ ] GET req
-[ ] C button to clear the fields
-[ ] ul append li to DOM for all calculations, should stay even after refreshing the page
+[x] "submit" button that is an =, capture the input and POST to server
+[x] GET req
+[x] C button to clear the fields
+[x] ul append li to DOM for all calculations, should stay even after refreshing the page
 
 Server side:
-[ ] POST receive user inputs to server
-[ ] GET user to receive logic from server (201)
-[ ] logic that computes out the inputs
-    [ ] take in inputs into a variable/object
-    [ ] compute the inputs from the button function the user chose
-    [ ] return a value
+[x] POST receive user inputs to server
+[x] GET user to receive logic from server (201)
+[x] logic that computes out the inputs
+    [x] take in inputs into a variable/object
+    [x] compute the inputs from the button function the user chose
+    [x] return a value
 
 
 STRETCH:
